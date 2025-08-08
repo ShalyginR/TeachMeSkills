@@ -16,10 +16,11 @@
 
 def fibonacci_generator(n: int):
     """Генераторная функция, возвращает n чисел Фибоначчи."""
-    # TODO: напишите генератор
     a, b = 0, 1
     for _ in range(n):
+        yield a
         a, b = b, a + b
+
     
 
 # Тест:
@@ -158,7 +159,7 @@ class AnimalFactory:
         # TODO: возвращайте Dog или Cat в зависимости от animal_type
         if animal_type.lower() == "dog":
             return Dog()
-        elif animal_type.lower() == "cat"
+        elif animal_type.lower() == "cat":
             return Cat()
         else:
             raise ValueError("Unknown animal type")
@@ -180,8 +181,7 @@ animal.speak()
 class OperationStrategy(ABC):
     @abstractmethod
     def execute(self, a, b):
-        self.a = a
-        self.b = b
+        pass
 
 
 class Addition(OperationStrategy):
@@ -193,7 +193,7 @@ class Addition(OperationStrategy):
 class Subtraction(OperationStrategy):
     def execute(self, a, b):
         # TODO: реализуйте метод
-        return a -b
+        return a - b
 
 
 class Multiplication(OperationStrategy):
@@ -204,7 +204,8 @@ class Multiplication(OperationStrategy):
 
 class Division(OperationStrategy):
     def execute(self, a, b):
-        # TODO: реализуйте метод
+        if b == 0:
+            raise ZeroDivisionError("Деление на ноль невозможно")
         return a / b
 
 
@@ -216,8 +217,9 @@ class Calculator:
         self.strategy = strategy
 
     def calculate(self, a, b):
-        # TODO: выполните операцию через текущую стратегию
-        pass
+        if self.strategy is None:
+            raise ValueError("Error")
+        return self.strategy.execute(a, b)
 
 
 # Тест:
