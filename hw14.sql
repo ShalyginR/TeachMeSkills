@@ -41,7 +41,7 @@ CREATE TABLE Employees (
 
 -- 📝 Напишите здесь INSERT INTO
 -- Пример:
-INSERT INTO Employees (Name , Position, Department, Salary) VALUES;
+INSERT INTO Employees (Name , Position, Department, Salary) VALUES
 ('Alice', 'Manager', 'Sales', 6000),
 ('Roma', 'Developer', 'IT', 4500),
 ('Max', 'Salesperson', 'Sales', 3500),
@@ -54,7 +54,7 @@ INSERT INTO Employees (Name , Position, Department, Salary) VALUES;
 -- Пример:
 UPDATE Employees 
 SET Position = "Senior Developer" 
-WHERE Name = "Alexei";
+WHERE Name = 'Alexei';
 
 
 -- ✅ TODO 4: Добавьте новое поле "HireDate" (DATE) в таблицу "Employees"
@@ -79,7 +79,7 @@ UPDATE Employees SET HireDate = '2021-10-20' WHERE Name = 'Roma';
 
 -- 📝 Напишите здесь SELECT
 -- Пример:
-SELECT * FROM Employees WHERE Position = "Manager";
+SELECT * FROM Employees WHERE Position = "Manager"
 
 
 -- ✅ TODO 7: Найдите всех сотрудников с зарплатой больше 5000
@@ -127,7 +127,7 @@ DROP TABLE Employees;
 
 CREATE PROCEDURE GetSalesEmployees()
 BEGIN
-    SELECT * FROM Employees WHERE Department = "Sales";
+    SELECT * FROM Employees WHERE Department = "Sales"
 END
 
 CALL GetSalesEmployees();
